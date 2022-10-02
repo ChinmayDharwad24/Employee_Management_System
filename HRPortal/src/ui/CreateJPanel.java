@@ -4,7 +4,13 @@
  */
 package ui;
 
+import java.awt.Image;
+import java.io.File;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.text.StyleConstants;
 import model.Employee;
 import model.EmployeeStorage;
 
@@ -57,6 +63,9 @@ public class CreateJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtTeamInfo = new javax.swing.JTextArea();
         btnSave = new javax.swing.JButton();
+        btnBrowse = new javax.swing.JButton();
+        lblPic = new javax.swing.JLabel();
+        txtPic = new javax.swing.JTextField();
 
         lblCreate.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblCreate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -101,6 +110,15 @@ public class CreateJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnBrowse.setText("Browse");
+        btnBrowse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBrowseActionPerformed(evt);
+            }
+        });
+
+        txtPic.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -123,21 +141,28 @@ public class CreateJPanel extends javax.swing.JPanel {
                             .addComponent(lblPhNo)
                             .addComponent(lblEmailid))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtLevel)
-                            .addComponent(txtGender)
-                            .addComponent(txtStartDate)
-                            .addComponent(txtName)
-                            .addComponent(txtAge)
-                            .addComponent(txtEmpid)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPositionTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPhNo, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmailid, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtLevel)
+                                .addComponent(txtGender)
+                                .addComponent(txtStartDate)
+                                .addComponent(txtName)
+                                .addComponent(txtAge)
+                                .addComponent(txtEmpid)
+                                .addComponent(txtPositionTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                                .addComponent(txtPhNo, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                                .addComponent(txtEmailid, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnBrowse)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPic, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPic, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(259, 259, 259)
+                        .addGap(271, 271, 271)
                         .addComponent(btnSave)))
-                .addGap(0, 164, Short.MAX_VALUE))
+                .addGap(0, 156, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,8 +196,8 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTeamInfo)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPositionTitle)
                     .addComponent(txtPositionTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -185,10 +210,15 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(lblEmailid)
                     .addComponent(txtEmailid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblPhoto)
-                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPhoto)
+                    .addComponent(btnBrowse)
+                    .addComponent(lblPic, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtPic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(btnSave)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addGap(67, 67, 67))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -200,7 +230,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         String name = txtName.getText();
         String empid = txtEmpid.getText();
-        Integer age = Integer.parseInt(txtAge.getText());
+        Integer age = Integer.valueOf(txtAge.getText());
         String gender = txtGender.getText();
         String startDate = txtStartDate.getText();
         String level = txtLevel.getText();
@@ -208,6 +238,8 @@ public class CreateJPanel extends javax.swing.JPanel {
         String positionTitle = txtPositionTitle.getText();
         String phNo = txtPhNo.getText();
         String emailid = txtEmailid.getText();
+        String photo = txtPic.getText();
+        
         
         Employee emp = history.addNewEmployee();
         
@@ -221,6 +253,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         emp.setTeamInfo(teamInfo);
         emp.setPhNo(phNo);
         emp.setEmailid(emailid);
+        emp.setPhoto(photo);
         
         
         JOptionPane.showMessageDialog(this, "New Employee added successfully.");
@@ -235,11 +268,35 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtTeamInfo.setText("");
         txtPhNo.setText("");
         txtEmailid.setText("");  
+        txtPic.setText("");
+        
         
     }//GEN-LAST:event_btnSaveActionPerformed
 
+    private void btnBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseActionPerformed
+        // TODO add your handling code here:
+        JFileChooser btnBrowse = new JFileChooser();
+        
+        FileNameExtensionFilter picExt = new FileNameExtensionFilter("IMAGE", "png","jpg","jpeg");
+        btnBrowse.addChoosableFileFilter(picExt);
+        int showWindow = btnBrowse.showOpenDialog(null);
+        
+        if (showWindow == JFileChooser.APPROVE_OPTION) {
+            File selectedImageFile = btnBrowse.getSelectedFile();
+            String selectedImagePath = selectedImageFile.getAbsolutePath();
+            JOptionPane.showMessageDialog(null, selectedImagePath);
+            
+            ImageIcon img = new ImageIcon(selectedImagePath);
+            txtPic.setText(selectedImagePath);
+            
+            Image image = img.getImage().getScaledInstance(lblPic.getWidth(),lblPic.getHeight(), Image.SCALE_SMOOTH);
+             lblPic.setIcon(new ImageIcon(image));
+        }
+    }//GEN-LAST:event_btnBrowseActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBrowse;
     private javax.swing.JButton btnSave;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAge;
@@ -251,6 +308,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPhNo;
     private javax.swing.JLabel lblPhoto;
+    private javax.swing.JLabel lblPic;
     private javax.swing.JLabel lblPositionTitle;
     private javax.swing.JLabel lblStartDate;
     private javax.swing.JLabel lblTeamInfo;
@@ -261,6 +319,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtLevel;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPhNo;
+    private javax.swing.JTextField txtPic;
     private javax.swing.JTextField txtPositionTitle;
     private javax.swing.JTextField txtStartDate;
     private javax.swing.JTextArea txtTeamInfo;

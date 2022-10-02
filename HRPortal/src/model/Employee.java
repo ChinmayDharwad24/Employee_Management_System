@@ -20,6 +20,7 @@ public class Employee {
     private String positionTitle;
     private String phNo;
     private String emailid;
+    private String photo;
 
     public String getName() {
         return name;
@@ -102,6 +103,16 @@ public class Employee {
     public void setEmailid(String emailid) {
         this.emailid = emailid;
     }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+    
+    
     
     @Override
     public String toString(){
