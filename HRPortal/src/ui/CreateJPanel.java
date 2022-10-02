@@ -54,7 +54,6 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtName = new javax.swing.JTextField();
         txtEmpid = new javax.swing.JTextField();
         txtAge = new javax.swing.JTextField();
-        txtGender = new javax.swing.JTextField();
         txtStartDate = new javax.swing.JTextField();
         txtLevel = new javax.swing.JTextField();
         txtPositionTitle = new javax.swing.JTextField();
@@ -66,6 +65,9 @@ public class CreateJPanel extends javax.swing.JPanel {
         btnBrowse = new javax.swing.JButton();
         lblPic = new javax.swing.JLabel();
         txtPic = new javax.swing.JTextField();
+        radMale = new javax.swing.JRadioButton();
+        radFemale = new javax.swing.JRadioButton();
+        radOthers = new javax.swing.JRadioButton();
 
         lblCreate.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblCreate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -119,6 +121,12 @@ public class CreateJPanel extends javax.swing.JPanel {
 
         txtPic.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
 
+        radMale.setText("Male");
+
+        radFemale.setText("Female");
+
+        radOthers.setText("Others");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -144,7 +152,6 @@ public class CreateJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtLevel)
-                                .addComponent(txtGender)
                                 .addComponent(txtStartDate)
                                 .addComponent(txtName)
                                 .addComponent(txtAge)
@@ -158,7 +165,13 @@ public class CreateJPanel extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblPic, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPic, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(txtPic, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(radMale, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(radFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(radOthers, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(271, 271, 271)
                         .addComponent(btnSave)))
@@ -182,9 +195,12 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(lblAge)
                     .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblGenger)
-                    .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(radMale, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(radFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(radOthers, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblStartDate)
@@ -216,7 +232,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(lblPic, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtPic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(btnSave)
                 .addGap(67, 67, 67))
         );
@@ -231,7 +247,17 @@ public class CreateJPanel extends javax.swing.JPanel {
         String name = txtName.getText();
         String empid = txtEmpid.getText();
         Integer age = Integer.valueOf(txtAge.getText());
-        String gender = txtGender.getText();
+        String gender = "";
+        if(radMale.isSelected()){
+            gender = "Male";
+        }
+        else if(radFemale.isSelected()){
+            gender = "Female";
+        }
+        else if(radOthers.isSelected()){
+            gender = "Others";
+        }
+        
         String startDate = txtStartDate.getText();
         String level = txtLevel.getText();
         String teamInfo = txtTeamInfo.getText();
@@ -261,7 +287,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtName.setText("");
         txtEmpid.setText("");
         txtAge.setText("");
-        txtGender.setText("");
+        
         txtLevel.setText("");
         txtStartDate.setText("");
         txtPositionTitle.setText("");
@@ -312,10 +338,12 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblPositionTitle;
     private javax.swing.JLabel lblStartDate;
     private javax.swing.JLabel lblTeamInfo;
+    private javax.swing.JRadioButton radFemale;
+    private javax.swing.JRadioButton radMale;
+    private javax.swing.JRadioButton radOthers;
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtEmailid;
     private javax.swing.JTextField txtEmpid;
-    private javax.swing.JTextField txtGender;
     private javax.swing.JTextField txtLevel;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPhNo;
