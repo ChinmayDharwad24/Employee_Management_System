@@ -6,6 +6,7 @@ package ui;
 
 import java.awt.Image;
 import java.io.File;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -39,6 +40,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox1 = new javax.swing.JComboBox<>();
         lblCreate = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
         lblEmpid = new javax.swing.JLabel();
@@ -68,7 +70,14 @@ public class CreateJPanel extends javax.swing.JPanel {
         radMale = new javax.swing.JRadioButton();
         radFemale = new javax.swing.JRadioButton();
         radOthers = new javax.swing.JRadioButton();
-        lblPath = new javax.swing.JLabel();
+        radNone = new javax.swing.JRadioButton();
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         lblCreate.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblCreate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -123,13 +132,17 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtPic.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
 
         radMale.setText("Male");
+        radMale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radMaleActionPerformed(evt);
+            }
+        });
 
         radFemale.setText("Female");
 
         radOthers.setText("Others");
 
-        lblPath.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
-        lblPath.setText("filepath");
+        radNone.setText("jRadioButton1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -138,6 +151,9 @@ public class CreateJPanel extends javax.swing.JPanel {
             .addComponent(lblCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(271, 271, 271)
+                        .addComponent(btnSave))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(120, 120, 120)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -154,34 +170,34 @@ public class CreateJPanel extends javax.swing.JPanel {
                             .addComponent(lblEmailid))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtLevel)
-                                .addComponent(txtStartDate)
-                                .addComponent(txtName)
-                                .addComponent(txtAge)
-                                .addComponent(txtEmpid)
-                                .addComponent(txtPositionTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                                .addComponent(txtPhNo, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                                .addComponent(txtEmailid, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                                .addComponent(jScrollPane1))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnBrowse)
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblPic, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lblPath)
-                                        .addComponent(txtPic, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(txtPic, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblPic, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(radMale, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(radFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(radOthers, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(271, 271, 271)
-                        .addComponent(btnSave)))
-                .addContainerGap(156, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(radMale, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(radFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(radOthers, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtLevel)
+                                        .addComponent(txtStartDate)
+                                        .addComponent(txtName)
+                                        .addComponent(txtAge)
+                                        .addComponent(txtEmpid)
+                                        .addComponent(txtPositionTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                                        .addComponent(txtPhNo, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                                        .addComponent(txtEmailid, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                                        .addComponent(jScrollPane1)))
+                                .addGap(18, 18, 18)
+                                .addComponent(radNone, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,7 +222,8 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(radMale, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(radFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(radOthers, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(radOthers, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(radNone, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblStartDate)
@@ -236,11 +253,9 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(lblPhoto)
                     .addComponent(btnBrowse)
                     .addComponent(lblPic, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addComponent(txtPic, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPath)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(txtPic, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addComponent(btnSave)
                 .addGap(67, 67, 67))
         );
@@ -271,6 +286,10 @@ public class CreateJPanel extends javax.swing.JPanel {
         }
          
         String gender = "";
+        ButtonGroup genderGroup = new ButtonGroup();
+        genderGroup.add(radMale);
+        genderGroup.add(radFemale);
+        genderGroup.add(radOthers);
         if(radMale.isSelected()){
             gender = "Male";
         }
@@ -280,6 +299,10 @@ public class CreateJPanel extends javax.swing.JPanel {
         else if(radOthers.isSelected()){
             gender = "Others";
         }
+        if(radOthers.isSelected()){
+            gender = "";
+        }
+        
         if (gender.equals("")){
             JOptionPane.showMessageDialog(this, "Please select your gender");
             return;
@@ -318,12 +341,14 @@ public class CreateJPanel extends javax.swing.JPanel {
         }
        
         String phNo = txtPhNo.getText();
+      
         if (phNo.equals("")){
             JOptionPane.showMessageDialog(this, "Please enter your phone number");
             return;
         }
-        if (positionTitle.length()!= 10){
+        if (phNo.length()!= 10){
             JOptionPane.showMessageDialog(this, "Please enter a valid Phone number");
+            return;
         }
         
         String emailid = txtEmailid.getText();
@@ -367,7 +392,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtEmailid.setText("");  
         txtPic.setText("");
         radMale.setSelected(true);
-        
+        lblPic.setIcon(null);
         
         
     }//GEN-LAST:event_btnSaveActionPerformed
@@ -383,20 +408,30 @@ public class CreateJPanel extends javax.swing.JPanel {
         if (showWindow == JFileChooser.APPROVE_OPTION) {
             File selectedImageFile = btnBrowse.getSelectedFile();
             String selectedImagePath = selectedImageFile.getAbsolutePath();
-            JOptionPane.showMessageDialog(null, selectedImagePath);
+//            JOptionPane.showMessageDialog(null, selectedImagePath);
             
             ImageIcon img = new ImageIcon(selectedImagePath);
             txtPic.setText(selectedImagePath);
             
             Image image = img.getImage().getScaledInstance(lblPic.getWidth(),lblPic.getHeight(), Image.SCALE_SMOOTH);
-             lblPic.setIcon(new ImageIcon(image));
+            lblPic.setIcon(new ImageIcon(image));
+            
         }
     }//GEN-LAST:event_btnBrowseActionPerformed
+
+    private void radMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radMaleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radMaleActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBrowse;
     private javax.swing.JButton btnSave;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblCreate;
@@ -405,7 +440,6 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblGenger;
     private javax.swing.JLabel lblLevel;
     private javax.swing.JLabel lblName;
-    private javax.swing.JLabel lblPath;
     private javax.swing.JLabel lblPhNo;
     private javax.swing.JLabel lblPhoto;
     private javax.swing.JLabel lblPic;
@@ -414,6 +448,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblTeamInfo;
     private javax.swing.JRadioButton radFemale;
     private javax.swing.JRadioButton radMale;
+    private javax.swing.JRadioButton radNone;
     private javax.swing.JRadioButton radOthers;
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtEmailid;

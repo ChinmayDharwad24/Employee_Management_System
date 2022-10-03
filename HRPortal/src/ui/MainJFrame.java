@@ -74,7 +74,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(btnCreate)
                 .addGap(18, 18, 18)
                 .addComponent(btnView)
-                .addContainerGap(462, Short.MAX_VALUE))
+                .addContainerGap(442, Short.MAX_VALUE))
         );
 
         splitPanel.setLeftComponent(controlPanel);
@@ -103,7 +103,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(lblTitle)
                 .addGap(210, 210, 210)
                 .addComponent(lblWelcome)
-                .addContainerGap(356, Short.MAX_VALUE))
+                .addContainerGap(336, Short.MAX_VALUE))
         );
 
         splitPanel.setRightComponent(workPanel);
@@ -116,7 +116,7 @@ public class MainJFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPanel, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(splitPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
         );
 
         pack();
