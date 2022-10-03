@@ -323,6 +323,8 @@ public class ViewJPanel extends javax.swing.JPanel {
         Image image = img.getImage().getScaledInstance(lblPic.getWidth(),lblPic.getHeight(), Image.SCALE_SMOOTH);
         lblPic.setIcon(new ImageIcon(image));
         
+        btnSave2.setVisible(false);
+        
         
         
         
