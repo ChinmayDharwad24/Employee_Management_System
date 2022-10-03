@@ -74,7 +74,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(btnCreate)
                 .addGap(18, 18, 18)
                 .addComponent(btnView)
-                .addContainerGap(412, Short.MAX_VALUE))
+                .addContainerGap(462, Short.MAX_VALUE))
         );
 
         splitPanel.setLeftComponent(controlPanel);
@@ -103,7 +103,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(lblTitle)
                 .addGap(210, 210, 210)
                 .addComponent(lblWelcome)
-                .addContainerGap(306, Short.MAX_VALUE))
+                .addContainerGap(356, Short.MAX_VALUE))
         );
 
         splitPanel.setRightComponent(workPanel);

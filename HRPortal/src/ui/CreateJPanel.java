@@ -68,6 +68,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         radMale = new javax.swing.JRadioButton();
         radFemale = new javax.swing.JRadioButton();
         radOthers = new javax.swing.JRadioButton();
+        lblPath = new javax.swing.JLabel();
 
         lblCreate.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblCreate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -127,6 +128,9 @@ public class CreateJPanel extends javax.swing.JPanel {
 
         radOthers.setText("Others");
 
+        lblPath.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        lblPath.setText("filepath");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -165,7 +169,9 @@ public class CreateJPanel extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblPic, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPic, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(lblPath)
+                                        .addComponent(txtPic, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(radMale, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -175,7 +181,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(271, 271, 271)
                         .addComponent(btnSave)))
-                .addGap(0, 156, Short.MAX_VALUE))
+                .addContainerGap(156, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,9 +236,11 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(lblPhoto)
                     .addComponent(btnBrowse)
                     .addComponent(lblPic, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtPic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGap(15, 15, 15)
+                .addComponent(txtPic, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPath)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(btnSave)
                 .addGap(67, 67, 67))
         );
@@ -245,8 +253,23 @@ public class CreateJPanel extends javax.swing.JPanel {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         String name = txtName.getText();
+        if (name.equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter your Name");
+            return;
+        }
+        
         String empid = txtEmpid.getText();
+         if (empid.equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter your Emploee ID");
+            return;
+        }
+         
         Integer age = Integer.valueOf(txtAge.getText());
+         if (txtAge.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter your Age");
+            return;
+        }
+         
         String gender = "";
         if(radMale.isSelected()){
             gender = "Male";
@@ -257,13 +280,61 @@ public class CreateJPanel extends javax.swing.JPanel {
         else if(radOthers.isSelected()){
             gender = "Others";
         }
+        if (gender.equals("")){
+            JOptionPane.showMessageDialog(this, "Please select your gender");
+            return;
+        }
         
         String startDate = txtStartDate.getText();
+        
+        StringBuffer sBuffer = new StringBuffer(startDate);
+        String mm;
+        String dd;
+        String yr;
+
+        mm = sBuffer.substring(0,2);
+        dd = sBuffer.substring(3,5);
+        yr = sBuffer.substring(6,10);
+
+        
+        if(mm.matches("0[1-9]|1[0-2]") && dd.matches("0[1-9]|[12][0-9]|3[01]") && yr.matches("(19|20)\\d\\d"))
+        {
+          
+        }
+        else
+        {
+         JOptionPane.showMessageDialog(this, "Please enter correct date in format mm/dd/yyyy");
+         return;
+        }
+        
         String level = txtLevel.getText();
+        
         String teamInfo = txtTeamInfo.getText();
+        
         String positionTitle = txtPositionTitle.getText();
+        if (positionTitle.equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter your Position title");
+            return;
+        }
+       
         String phNo = txtPhNo.getText();
+        if (phNo.equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter your phone number");
+            return;
+        }
+        if (positionTitle.length()!= 10){
+            JOptionPane.showMessageDialog(this, "Please enter a valid Phone number");
+        }
+        
         String emailid = txtEmailid.getText();
+        if (emailid.matches("(.*)@(.*).com")){
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Please enter a valid Email Id");
+            return;
+        }
+        
         String photo = txtPic.getText();
         
         
@@ -295,6 +366,8 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtPhNo.setText("");
         txtEmailid.setText("");  
         txtPic.setText("");
+        radMale.setSelected(true);
+        
         
         
     }//GEN-LAST:event_btnSaveActionPerformed
@@ -332,6 +405,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblGenger;
     private javax.swing.JLabel lblLevel;
     private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblPath;
     private javax.swing.JLabel lblPhNo;
     private javax.swing.JLabel lblPhoto;
     private javax.swing.JLabel lblPic;

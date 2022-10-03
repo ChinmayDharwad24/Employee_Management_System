@@ -52,7 +52,10 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblPic" min="-2" pref="167" max="-2" attributes="0"/>
-                                  <Component id="txtPic" min="-2" pref="79" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Component id="lblPath" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtPic" min="-2" pref="158" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -69,7 +72,7 @@
                       <Component id="btnSave" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="0" pref="156" max="32767" attributes="0"/>
+              <EmptySpace pref="156" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -138,9 +141,11 @@
                   <Component id="btnBrowse" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblPic" alignment="3" min="-2" pref="111" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="txtPic" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="33" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <Component id="txtPic" min="-2" pref="9" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblPath" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="10" max="32767" attributes="0"/>
               <Component id="btnSave" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
           </Group>
@@ -284,6 +289,14 @@
     <Component class="javax.swing.JRadioButton" name="radOthers">
       <Properties>
         <Property name="text" type="java.lang.String" value="Others"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPath">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="8" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="filepath"/>
       </Properties>
     </Component>
   </SubComponents>
