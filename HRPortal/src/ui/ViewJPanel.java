@@ -332,6 +332,8 @@ public class ViewJPanel extends javax.swing.JPanel {
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
+        btnSave2.setVisible(true);
+        
         int selectedRowIndex = tblEmp.getSelectedRow();
         
         if (selectedRowIndex<0){
