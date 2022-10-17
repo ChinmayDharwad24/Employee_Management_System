@@ -274,16 +274,19 @@ public class CreateJPanel extends javax.swing.JPanel {
         }
         
         String empid = txtEmpid.getText();
-         if (empid.equals("")){
+        if (empid.equals("")){
             JOptionPane.showMessageDialog(this, "Please enter your Emploee ID");
             return;
         }
-         
-        Integer age = Integer.valueOf(txtAge.getText());
-         if (txtAge.getText().equals("")){
+        
+        if (txtAge.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Please enter your Age");
             return;
         }
+        
+        Integer age = Integer.valueOf(txtAge.getText());
+        
+     
          
         String gender = "";
         ButtonGroup genderGroup = new ButtonGroup();
@@ -292,6 +295,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         genderGroup.add(radOthers);
         if(radMale.isSelected()){
             gender = "Male";
+            
         }
         else if(radFemale.isSelected()){
             gender = "Female";
@@ -299,16 +303,19 @@ public class CreateJPanel extends javax.swing.JPanel {
         else if(radOthers.isSelected()){
             gender = "Others";
         }
-        if(radOthers.isSelected()){
-            gender = "";
-        }
         
+        radNone.isSelected();
         if (gender.equals("")){
             JOptionPane.showMessageDialog(this, "Please select your gender");
             return;
         }
         
         String startDate = txtStartDate.getText();
+        
+        if (startDate.length()<10){
+            JOptionPane.showMessageDialog(this,"Please enter correct date in format mm/dd/yyyy" );
+            return;
+        }
         
         StringBuffer sBuffer = new StringBuffer(startDate);
         String mm;
