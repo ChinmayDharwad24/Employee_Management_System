@@ -1,4 +1,1 @@
-# Dharwad_Chinmay_002771031
-Java Development
-
-Assignment 1 on java swing
+Simple java application to perform CRUD operation of Employees
